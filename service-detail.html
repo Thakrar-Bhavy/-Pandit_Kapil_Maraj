@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service Details | Vakta Shree Kapil Muniji</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff8f0;
+            color: #1c1425;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVBAR ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            transition: 0.4s;
+        }
+
+        .header.scrolled {
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar {
+            width: 100%;
+            max-width: 1400px;
+            margin: auto;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            max-width: 260px;
+            height: auto;
+        }
+
+        @media(max-width:768px) {
+            .logo img {
+                max-width: 260px;
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+            font-weight: 500;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ff9800;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ffb347;
+        }
+
+        .whatsapp-btn {
+            text-decoration: none;
+            background: #ff9800;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .menu-toggle {
+            display: none;
+            color: white;
+            font-size: 32px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+            .whatsapp-btn {
+                display: none;
+            }
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #111;
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 0;
+                display: none;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+        }
+
+        /* ===== SERVICE HERO ===== */
+        .service-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 140px 20px 60px;
+            position: relative;
+            background: linear-gradient(145deg, #130b1c, #261b30, #1f132a);
+            border-bottom: 4px solid #fbbf24;
+            overflow: hidden;
+        }
+
+        .service-hero .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.25;
+            animation: floatOrb 14s infinite alternate ease-in-out;
+            pointer-events: none;
+        }
+
+        .service-hero .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: #f59e0b;
+            top: -20%;
+            left: -10%;
+            animation-duration: 18s;
+        }
+
+        .service-hero .orb-2 {
+            width: 350px;
+            height: 350px;
+            background: #8b5cf6;
+            bottom: -20%;
+            right: -10%;
+            animation-duration: 22s;
+            animation-delay: 2s;
+        }
+
+        @keyframes floatOrb {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(50px, -30px) scale(1.15);
+            }
+        }
+
+        .service-hero-content {
+            position: relative;
+            z-index: 5;
+            max-width: 800px;
+        }
+
+        .service-hero-content .back-link {
+            display: inline-block;
+            color: #fbbf24;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: 0.3s;
+            font-size: 15px;
+        }
+
+        .service-hero-content .back-link:hover {
+            transform: translateX(-6px);
+            color: #ffd700;
+        }
+
+        .service-hero-content .service-badge {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.15);
+            backdrop-filter: blur(8px);
+            padding: 8px 24px;
+            border-radius: 60px;
+            color: #fcd34d;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .service-hero-content h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.8rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .service-hero-content h1 span {
+            background: linear-gradient(135deg, #fde68a, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .service-hero-content p {
+            color: #d4c9db;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 650px;
+            margin: 0 auto 30px;
+        }
+
+        .service-hero-content .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #ff9800;
+            color: #fff;
+            box-shadow: 0 10px 25px rgba(255, 152, 0, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            background: #ff8800;
+        }
+
+        .btn-secondary {
+            border: 2px solid #fff;
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background: #fff;
+            color: #111;
+        }
+
+        /* ===== SERVICE DETAILS ===== */
+        .service-details {
+            padding: 80px 8%;
+            background: #fffaf3;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .details-main h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: #1c1425;
+            margin-bottom: 20px;
+        }
+
+        .details-main h2 span {
+            color: #ff9800;
+        }
+
+        .details-main p {
+            color: #555;
+            line-height: 1.9;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+
+        .details-main ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .details-main ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0e9e2;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-weight: 500;
+        }
+
+        .details-main ul li i {
+            color: #ff9800;
+            font-size: 1.2rem;
+            width: 24px;
+        }
+
+        .details-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .info-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            border: 1px solid #f0e9e2;
+        }
+
+        .info-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            color: #1c1425;
+        }
+
+        .info-card .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f3ede7;
+        }
+
+        .info-card .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-card .info-item .label {
+            color: #888;
+            font-weight: 400;
+        }
+
+        .info-card .info-item .value {
+            font-weight: 600;
+            color: #1c1425;
+        }
+
+        .info-card .info-item .value.gold {
+            color: #ff9800;
+        }
+
+        .book-btn {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding: 16px;
+            background: #25d366;
+            color: #fff;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .book-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        /* ===== RELATED SERVICES ===== */
+        .related-services {
+            padding: 60px 8% 80px;
+            background: #f6f2ec;
+        }
+
+        .related-services h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .related-services h2 span {
+            color: #ff9800;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .related-card {
+            background: #fff;
+            padding: 25px 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+            transition: 0.3s;
+            border: 1px solid #f0e9e2;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .related-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 35px rgba(245, 158, 11, 0.08);
+            border-color: #fbbf2440;
+        }
+
+        .related-card .rel-icon {
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+        }
+
+        .related-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .related-card p {
+            font-size: 0.85rem;
+            color: #777;
+            margin-top: 4px;
+        }
+
+        /* ===== CTA BANNER ===== */
+        .cta-banner {
+            background: linear-gradient(145deg, #1a0f26, #2d1d38);
+            padding: 60px 20px;
+            text-align: center;
+            margin: 0;
+            width: 100%;
+            border-radius: 0;
+           
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 215, 0, 0.08);
+        }
+
+        .cta-banner::before {
+            content: '🕉';
+            font-size: 10rem;
+            opacity: 0.04;
+            position: absolute;
+            right: -20px;
+            bottom: -30px;
+            transform: rotate(-12deg);
+            pointer-events: none;
+        }
+
+        .cta-banner h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 12px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .cta-banner p {
+            color: #cfc2d8;
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 0 auto 28px;
+        }
+
+        .cta-banner .btn-group {
+            gap: 16px;
+        }
+
+        .cta-banner .btn {
+            padding: 14px 34px;
+            font-size: 0.95rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .service-hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .service-hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .service-hero-content p {
+                font-size: 1rem;
+            }
+
+            .details-main h2 {
+                font-size: 1.8rem;
+            }
+
+            .related-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-hero {
+                min-height: 50vh;
+                padding: 120px 16px 40px;
+            }
+
+            .service-hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .btn {
+                padding: 12px 22px;
+                font-size: 0.9rem;
+            }
+
+            .cta-banner h3 {
+                font-size: 1.5rem;
+            }
+
+            .info-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="img/logo.png" alt="Vakta Shree Kapil Muniji">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#hero">Home</a></li>
+                <li><a href="index.html#about-section">About</a></li>
+                <li><a href="index.html#services" class="active">Services</a></li>
+                <li><a href="index.html#gallery-section">Gallery</a></li>
+                <li><a href="index.html#faq-section">FAQ</a></li>
+                <li><a href="index.html#cta-section">Contact</a></li>
+                 <li><a href="AI.html">Dharma AI</a></li>
+            </ul>
+            <a href="https://wa.me/919925752049" class="whatsapp-btn">Book On WhatsApp</a>
+            <div class="menu-toggle">☰</div>
+        </nav>
+    </header>
+
+    <!-- ===== SERVICE HERO ===== -->
+    <section class="service-hero" id="service-hero">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="service-hero-content">
+            <a href="index.html#services" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Services
+            </a>
+            <div class="service-badge" id="serviceBadge">🕉 Spiritual Service</div>
+            <h1 id="serviceTitle">Loading...</h1>
+            <p id="serviceDesc">Please wait while we load the service details.</p>
+            <div class="btn-group">
+                <a href="https://wa.me/919925752049" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Book on WhatsApp
+                </a>
+                <a href="tel:+919925752049" class="btn btn-secondary">
+                    <i class="fas fa-phone-alt"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICE DETAILS ===== -->
+    <section class="service-details">
+        <div class="details-grid">
+            <div class="details-main">
+                <h2>About <span id="detailTitle">Loading...</span></h2>
+                <p id="detailDesc1">Loading description...</p>
+                <p id="detailDesc2">Loading description...</p>
+                <h3 style="margin-top: 20px; font-family: 'Cinzel', serif; font-size: 1.3rem;">Key Highlights</h3>
+                <ul id="highlightsList">
+                    <li><i class="fas fa-check-circle"></i> Loading...</li>
+                </ul>
+            </div>
+            <div class="details-sidebar">
+                <div class="info-card">
+                    <h3><i class="fas fa-info-circle" style="color: #ff9800;"></i> Service Info</h3>
+                    <div class="info-item">
+                        <span class="label">Duration</span>
+                        <span class="value gold" id="durationVal">Loading...</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Location</span>
+                        <span class="value" id="locationVal">Loading...</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Samagri</span>
+                        <span class="value" id="samagriVal">Loading...</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Booking</span>
+                        <span class="value gold">WhatsApp / Call</span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3><i class="fas fa-list-check" style="color: #ff9800;"></i> Benefits</h3>
+                    <ul style="list-style: none; padding: 0;" id="benefitsList">
+                        <li style="padding: 6px 0; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-check-circle" style="color: #ff9800;"></i> Loading...
+                        </li>
+                    </ul>
+                </div>
+
+                <a href="https://wa.me/919925752049" class="book-btn">
+                    <i class="fab fa-whatsapp"></i> Book Now on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+   <!-- ===== RELATED SERVICES ===== -->
+
+<section class="related-services">
+
+    <h2>
+        Explore <span>More</span>
+    </h2>
+
+    <div class="related-grid" id="relatedGrid">
+
+        <!-- Dharma AI Card -->
+
+        <a href="AI.html" class="related-card">
+
+            <div class="rel-icon">🕉</div>
+
+            <h4>Dharma AI</h4>
+
+            <p>
+                Learn the complete story, benefits,
+                puja vidhi, samagri, fasting rules
+                and ask any spiritual question.
+            </p>
+
+        </a>
+
+    </div>
+
+</section>
+
+    <!-- ===== CTA BANNER ===== -->
+    <div class="cta-banner">
+        <h3>Need Help Choosing?</h3>
+        <p>Connect with Vakta Shree Kapil Muniji for personalized guidance.</p>
+        <div class="btn-group">
+            <a href="https://wa.me/919925752049" class="btn btn-primary">
+                <i class="fab fa-whatsapp"></i> WhatsApp Now
+            </a>
+            <a href="tel:+919925752049" class="btn btn-secondary">
+                <i class="fas fa-phone-alt"></i> Call Now
+            </a>
+        </div>
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== NAVBAR =====
+        window.addEventListener("scroll", () => {
+            const header = document.querySelector(".header");
+            header.classList.toggle("scrolled", window.scrollY > 50);
+        });
+
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navLinks = document.querySelector(".nav-links");
+
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+            });
+        });
+
+        // ===== COMPLETE SERVICE DATA (ALL 24 SERVICES) =====
+        const servicesData = {
+            // 1. Satyanarayan Katha
+            'satyanarayan-katha': {
+                icon: '🪔',
+                title: 'Satyanarayan Katha',
+                badge: '🕉 Vishnu Puja',
+                desc: 'Sacred Vishnu katha for peace, prosperity and blessings.',
+                detailTitle: 'Satyanarayan Katha',
+                detailDesc1: 'Satyanarayan Katha is a sacred ritual dedicated to Lord Vishnu. It is performed to seek blessings for peace, prosperity and overall well-being of the family.',
+                detailDesc2: 'The katha narrates the divine stories of Lord Vishnu and is believed to remove obstacles and bring happiness. It is ideal for family celebrations, housewarming and religious gatherings.',
+                highlights: [
+                    'Authentic Vedic narration',
+                    'Family prosperity & peace',
+                    'Divine blessings of Lord Vishnu',
+                    'Complete samagri guidance',
+                    'Available at home or venue'
+                ],
+                duration: '1 Day',
+                location: 'Home / Temple / Venue',
+                samagri: 'Guidance Provided',
+                benefits: ['Spiritual Growth', 'Family Harmony', 'Prosperity', 'Divine Blessings', 'Peace of Mind']
+            },
+
+            // 2. Bhagwat Katha
+            'bhagwat-katha': {
+                icon: '🛕',
+                title: 'Bhagwat Katha',
+                badge: '🕉 Katha',
+                desc: 'Divine Bhagwat Katha and spiritual pravachan.',
+                detailTitle: 'Bhagwat Katha',
+                detailDesc1: 'Bhagwat Katha is a sacred narration of Shrimad Bhagavat Mahapuran that unfolds the divine teachings of Lord Krishna. It is a powerful spiritual discourse that brings peace, prosperity and devotion.',
+                detailDesc2: 'Families organize Bhagwat Katha for spiritual upliftment, family harmony and to receive divine blessings. The katha is performed with traditional Vedic methods and devotion.',
+                highlights: [
+                    'Authentic Vedic narration',
+                    'Family harmony & peace',
+                    'Divine blessings of Lord Krishna',
+                    'Complete samagri guidance',
+                    'Available at home or venue'
+                ],
+                duration: '3 / 5 / 7 Days',
+                location: 'Home / Temple / Venue',
+                samagri: 'Guidance Provided',
+                benefits: ['Spiritual Growth', 'Family Harmony', 'Mental Peace', 'Positive Energy', 'Divine Blessings']
+            },
+
+            // 3. Havan & Yagna
+            'havan-yagna': {
+                icon: '🔥',
+                title: 'Havan & Yagna',
+                badge: '🔥 Agni Ritual',
+                desc: 'Powerful rituals for purification and positivity.',
+                detailTitle: 'Havan & Yagna',
+                detailDesc1: 'Havan and Yagna are powerful Vedic rituals performed to purify the environment and invoke divine blessings. These fire rituals are performed with specific mantras to remove negative energies.',
+                detailDesc2: 'Havan brings positivity, health and prosperity to the household. It is performed on special occasions, festivals and for spiritual purification.',
+                highlights: [
+                    'Purification of environment',
+                    'Removes negative energy',
+                    'Invokes divine blessings',
+                    'Complete samagri guidance',
+                    'Available at home or venue'
+                ],
+                duration: '2 / 4 / 8 Hours',
+                location: 'Home / Temple / Venue',
+                samagri: 'Guidance Provided',
+                benefits: ['Purification', 'Positive Energy', 'Health', 'Divine Protection', 'Prosperity']
+            },
+
+            // 4. Griha Pravesh
+            'griha-pravesh': {
+                icon: '🏠',
+                title: 'Griha Pravesh',
+                badge: '🏠 Vastu',
+                desc: 'Housewarming puja for new homes and positivity.',
+                detailTitle: 'Griha Pravesh',
+                detailDesc1: 'Griha Pravesh is a housewarming ceremony performed before entering a new home to seek blessings for peace, prosperity and happiness in the new dwelling.',
+                detailDesc2: 'The puja removes negative energies and invites positive vibrations, ensuring a harmonious and happy life in the new home. It is an essential ritual for every new home.',
+                highlights: [
+                    'Blessings for new home',
+                    'Removes negative energy',
+                    'Invites positivity & harmony',
+                    'Complete samagri guidance',
+                    'Performed with proper vidhi'
+                ],
+                duration: '2 / 4 Hours',
+                location: 'New Home / Venue',
+                samagri: 'Guidance Provided',
+                benefits: ['Harmony', 'Positive Energy', 'Peace', 'Prosperity', 'Divine Blessings']
+            },
+
+            // 5. Vivah Sanskar
+            'vivah-sanskar': {
+                icon: '💍',
+                title: 'Vivah Sanskar',
+                badge: '💍 Marriage',
+                desc: 'Traditional Hindu marriage rituals.',
+                detailTitle: 'Vivah Sanskar',
+                detailDesc1: 'Vivah Sanskar is the traditional Hindu marriage ceremony performed with Vedic rituals to unite two souls in holy matrimony. It is one of the most sacred sanskars in Hinduism.',
+                detailDesc2: 'The rituals include Kanyadaan, Mangal Pheras, Saptapadi and other sacred ceremonies ensuring a blessed and harmonious married life for the couple.',
+                highlights: [
+                    'Traditional Vedic rituals',
+                    'Complete marriage ceremony',
+                    'Blessings for couple',
+                    'Guidance for all rituals',
+                    'Performed with devotion'
+                ],
+                duration: '4 / 8 Hours',
+                location: 'Home / Marriage Hall',
+                samagri: 'Guidance Provided',
+                benefits: ['Blessed Marriage', 'Family Unity', 'Divine Blessings', 'Harmony', 'Prosperity']
+            },
+
+            // 6. Rudrabhishek
+            'rudrabhishek': {
+                icon: '📿',
+                title: 'Rudrabhishek',
+                badge: '🕉 Shiva Puja',
+                desc: 'Sacred Shiva puja for peace and protection.',
+                detailTitle: 'Rudrabhishek',
+                detailDesc1: 'Rudrabhishek is a sacred ritual dedicated to Lord Shiva. It involves the chanting of Rudra mantras and offering sacred items to the Shiva Linga for peace, protection and blessings.',
+                detailDesc2: 'This powerful puja removes negative energies, brings mental peace and provides divine protection. It is performed for health, prosperity and spiritual growth.',
+                highlights: [
+                    'Sacred Shiva puja',
+                    'Removes negative energy',
+                    'Brings peace & protection',
+                    'Complete samagri guidance',
+                    'Performed with proper vidhi'
+                ],
+                duration: '2 / 4 Hours',
+                location: 'Home / Temple / Venue',
+                samagri: 'Guidance Provided',
+                benefits: ['Peace of Mind', 'Divine Protection', 'Health', 'Prosperity', 'Spiritual Growth']
+            },
+
+            // 7. Kundli Matching
+            'kundli-matching': {
+                icon: '🧿',
+                title: 'Kundli Matching',
+                badge: '🧿 Astrology',
+                desc: 'Janam Kundli and marriage compatibility guidance.',
+                detailTitle: 'Kundli Matching',
+                detailDesc1: 'Kundli Matching is the traditional Vedic astrology practice of matching horoscopes for marriage compatibility. It ensures a harmonious and successful married life.',
+                detailDesc2: 'The process involves analyzing the birth charts of both partners, checking Guna Milan, Mangal Dosha and other astrological factors for a blessed union.',
+                highlights: [
+                    'Complete horoscope analysis',
+                    'Marriage compatibility guidance',
+                    'Guna Milan & Mangal Dosha check',
+                    'Detailed consultation',
+                    'Accurate astrological guidance'
+                ],
+                duration: '1 / 2 Hours',
+                location: 'Online / In-Person',
+                samagri: 'Not Required',
+                benefits: ['Marriage Compatibility', 'Harmonious Life', 'Astrological Guidance', 'Peace of Mind', 'Blessed Union']
+            },
+
+            // 8. Vastu Shanti
+            'vastu-shanti': {
+                icon: '🌿',
+                title: 'Vastu Shanti',
+                badge: '🌿 Vastu',
+                desc: 'Remove negative energy and improve harmony.',
+                detailTitle: 'Vastu Shanti',
+                detailDesc1: 'Vastu Shanti is a ritual performed to remove negative energies and bring harmony to living and working spaces. It follows the principles of Vastu Shastra to create a balanced environment.',
+                detailDesc2: 'The puja involves chanting mantras, performing havans and applying Vastu remedies to improve the flow of positive energy in homes, offices and commercial spaces.',
+                highlights: [
+                    'Remove negative energy',
+                    'Improve harmony',
+                    'Vastu dosh nivaran',
+                    'Complete guidance',
+                    'Available for home & office'
+                ],
+                duration: '2 / 4 Hours',
+                location: 'Home / Office / Venue',
+                samagri: 'Guidance Provided',
+                benefits: ['Harmony', 'Positive Energy', 'Peace', 'Prosperity', 'Success']
+            },
+
+            // 9. Maha Mrityunjaya Jaap
+            'mrityunjaya-jaap': {
+                icon: '🌙',
+                title: 'Maha Mrityunjaya Jaap',
+                badge: '🌙 Jaap',
+                desc: 'Powerful Shiva mantra for protection and health.',
+                detailTitle: 'Maha Mrityunjaya Jaap',
+                detailDesc1: 'Maha Mrityunjaya Jaap is the chanting of the powerful Maha Mrityunjaya mantra dedicated to Lord Shiva. It is believed to protect against untimely death, diseases and negative energies.',
+                detailDesc2: 'This sacred jaap brings health, longevity and mental peace. It is performed for healing, protection and spiritual growth.',
+                highlights: [
+                    'Powerful Shiva mantra',
+                    'Protection from diseases',
+                    'Health & longevity',
+                    'Complete guidance',
+                    'Performed with devotion'
+                ],
+                duration: '1 / 2 / 5 Days',
+                location: 'Home / Temple / Venue',
+                samagri: 'Guidance Provided',
+                benefits: ['Health', 'Protection', 'Longevity', 'Mental Peace', 'Spiritual Growth']
+            },
+
+            // 10. Lakshmi Puja
+            'lakshmi-puja': {
+                icon: '🪔',
+                title: 'Lakshmi Puja',
+                badge: '🪔 Wealth',
+                desc: 'For wealth, success and prosperity.',
+                detailTitle: 'Lakshmi Puja',
+                detailDesc1: 'Lakshmi Puja is dedicated to Goddess Lakshmi, the goddess of wealth and prosperity. This puja is performed to invite abundance, success and financial stability.',
+                detailDesc2: 'The ritual involves offering flowers, sweets and prayers to Goddess Lakshmi, chanting mantras and performing aarti for divine blessings.',
+                highlights: [
+                    'Wealth & prosperity',
+                    'Success in business',
+                    'Financial stability',
+                    'Complete samagri guidance',
+                    'Performed with devotion'
+                ],
+                duration: '2 / 4 Hours',
+                location: 'Home / Office / Venue',
+                samagri: 'Guidance Provided',
+                benefits: ['Wealth', 'Success', 'Prosperity', 'Financial Stability', 'Divine Blessings']
+            },
+
+            // 11. Bhoomi Pujan
+            'bhoomi-pujan': {
+                icon: '🌄',
+                title: 'Bhoomi Pujan',
+                badge: '🌄 Land',
+                desc: 'Auspicious rituals before construction.',
+                detailTitle: 'Bhoomi Pujan',
+                detailDesc1: 'Bhoomi Pujan is an auspicious ritual performed before starting any construction or development on a piece of land. It seeks blessings for a successful and trouble-free construction.',
+                detailDesc2: 'The puja involves worshipping the land, performing havans and chanting mantras to remove obstacles and ensure the prosperity of the structure to be built.',
+                highlights: [
+                    'Blessings for construction',
+                    'Remove obstacles',
+                    'Prosperity of the structure',
+                    'Complete samagri guidance',
+                    'Performed with proper vidhi'
+                ],
+                duration: '2 / 4 Hours',
+                location: 'Construction Site',
+                samagri: 'Guidance Provided',
+                benefits: ['Blessings', 'Success', 'Prosperity', 'Obstacle Removal', 'Peace of Mind']
+            },
+
+            // 12. Grah Shanti Puja
+            'grah-shanti': {
+                icon: '🔥',
+                title: 'Grah Shanti Puja',
+                badge: '🔥 Planetary',
+                desc: 'Traditional puja for peace and positivity.',
+                detailTitle: 'Grah Shanti Puja',
+                detailDesc1: 'Grah Shanti Puja is performed to pacify the planets and reduce the negative effects of planetary positions. It brings peace, positivity and harmony in life.',
+                detailDesc2: 'This puja involves chanting mantras for each planet, performing havans and offering specific items to the Navagrahas for their blessings.',
+                highlights: [
+                    'Planetary peace',
+                    'Remove dosh effects',
+                    'Bring positivity',
+                    'Complete samagri guidance',
+                    'Performed with devotion'
+                ],
+                duration: '2 / 4 Hours',
+                location: 'Home / Temple / Venue',
+                samagri: 'Guidance Provided',
+                benefits: ['Peace', 'Positivity', 'Harmony', 'Prosperity', 'Divine Blessings']
+            },
+
+            // 13. Naamkaran Sanskar
+            'naamkaran': {
+                icon: '👶',
+                title: 'Naamkaran Sanskar',
+                badge: '👶 Sanskar',
+                desc: 'Traditional naming ceremony for newborn babies.',
+                detailTitle: 'Naamkaran Sanskar',
+                detailDesc1: 'Naamkaran Sanskar is the traditional Hindu naming ceremony for newborn babies. It is an important samskara that gives the child a spiritual identity and invokes divine blessings.',
+                detailDesc2: 'The ceremony involves choosing an auspicious name based on the child\'s birth star, performing havans and prayers for the child\'s health, happiness and success.',
+                highlights: [
+                    'Traditional naming ceremony',
+                    'Auspicious name selection',
+                    'Blessings for the child',
+                    'Complete samagri guidance',
+                    'Performed with devotion'
+                ],
+                duration: '2 / 3 Hours',
+                location: 'Home / Temple / Venue',
+                samagri: 'Guidance Provided',
+                benefits: ['Divine Blessings', 'Health', 'Happiness', 'Success', 'Spiritual Identity']
+            },
+
+            // 14. Mundan Sanskar
+            'mundan': {
+                icon: '✂️',
+                title: 'Mundan Sanskar',
+                badge: '✂️ Sanskar',
+                desc: 'Sacred first hair-cutting ceremony.',
+                detailTitle: 'Mundan Sanskar',
+                detailDesc1: 'Mundan Sanskar is the sacred first hair-cutting ceremony performed for young children. It is an important Hindu ritual that symbolizes purification and spiritual growth.',
+                detailDesc2: 'The ceremony involves shaving the child\'s head, performing havans and prayers for the child\'s long life, health and prosperity.',
+                highlights: [
+                    'Sacred hair-cutting ceremony',
+                    'Purification ritual',
+                    'Blessings for the child',
+                    'Complete samagri guidance',
+                    'Performed with devotion'
+                ],
+                duration: '2 / 3 Hours',
+                location: 'Home / Temple / Venue',
+                samagri: 'Guidance Provided',
+                benefits: ['Purification', 'Health', 'Longevity', 'Divine Blessings', 'Spiritual Growth']
+            },
+
+            // 15. Office & Shop Puja
+            'office-puja': {
+                icon: '🏢',
+                title: 'Office & Shop Puja',
+                badge: '🏢 Business',
+                desc: 'Spiritual blessings for business growth.',
+                detailTitle: 'Office & Shop Puja',
+                detailDesc1: 'Office and Shop Puja is performed to invite divine blessings for business success, growth and prosperity. It removes obstacles and creates a positive work environment.',
+                detailDesc2: 'The puja involves worshipping Lord Ganesh and Goddess Lakshmi, performing havans and chanting mantras for business prosperity.',
+                highlights: [
+                    'Business success',
+                    'Remove obstacles',
+                    'Positive work environment',
+                    'Complete samagri guidance',
+                    'Performed with devotion'
+                ],
+                duration: '2 / 4 Hours',
+                location: 'Office / Shop / Venue',
+                samagri: 'Guidance Provided',
+                benefits: ['Business Growth', 'Success', 'Prosperity', 'Positive Energy', 'Divine Blessings']
+            },
+
+            // 16. Navagraha Puja
+            'navagraha': {
+                icon: '🛕',
+                title: 'Navagraha Puja',
+                badge: '🛕 Planets',
+                desc: 'Planetary peace and dosh nivaran rituals.',
+                detailTitle: 'Navagraha Puja',
+                detailDesc1: 'Navagraha Puja is performed to balance the nine planets and reduce the negative effects of planetary positions. It brings peace, harmony and success in life.',
+                detailDesc2: 'The ritual involves worshipping each planet with specific offerings, chanting mantras and performing havans for planetary peace.',
+                highlights: [
+                    'Planetary peace',
+                    'Dosh nivaran',
+                    'Balance of planets',
+                    'Complete samagri guidance',
+                    'Performed with devotion'
+                ],
+                duration: '3 / 5 / 7 Hours',
+                location: 'Home / Temple / Venue',
+                samagri: 'Guidance Provided',
+                benefits: ['Peace', 'Harmony', 'Success', 'Prosperity', 'Divine Blessings']
+            },
+
+            // 17. Sunderkand Path
+            'sunderkand': {
+                icon: '📖',
+                title: 'Sunderkand Path',
+                badge: '📖 Hanuman',
+                desc: 'Hanuman Ji path for protection and courage.',
+                detailTitle: 'Sunderkand Path',
+                detailDesc1: 'Sunderkand Path is a sacred recitation from the Ramayana that narrates the heroic deeds of Lord Hanuman. It is believed to provide protection, courage and strength to the devotee.',
+                detailDesc2: 'The path is performed to remove obstacles, bring positivity and invoke the blessings of Lord Hanuman. It is especially beneficial for overcoming challenges.',
+                highlights: [
+                    'Sacred Hanuman path',
+                    'Protection & courage',
+                    'Removes obstacles',
+                    'Complete guidance',
+                    'Performed with devotion'
+                ],
+                duration: '2 / 4 Hours',
+                location: 'Home / Temple / Venue',
+                samagri: 'Guidance Provided',
+                benefits: ['Protection', 'Courage', 'Strength', 'Positivity', 'Divine Blessings']
+            },
+
+            // 18. Muhurat Consultation
+            'muhurat': {
+                icon: '💫',
+                title: 'Muhurat Consultation',
+                badge: '💫 Astrology',
+                desc: 'Find auspicious timings for important events.',
+                detailTitle: 'Muhurat Consultation',
+                detailDesc1: 'Muhurat Consultation helps you find the most auspicious timings for important events like marriage, housewarming, starting a business and other significant ceremonies.',
+                detailDesc2: 'Based on Vedic astrology and planetary positions, we provide accurate muhurat recommendations for successful and blessed events.',
+                highlights: [
+                    'Auspicious timings',
+                    'Vedic astrology guidance',
+                    'Event success',
+                    'Complete consultation',
+                    'Accurate recommendations'
+                ],
+                duration: '1 / 2 Hours',
+                location: 'Online / In-Person',
+                samagri: 'Not Required',
+                benefits: ['Success', 'Blessings', 'Harmony', 'Prosperity', 'Peace of Mind']
+            },
+
+            // 19. Janam Kundli
+            'janam-kundli': {
+                icon: '📜',
+                title: 'Janam Kundli',
+                badge: '📜 Astrology',
+                desc: 'Complete birth chart analysis and guidance.',
+                detailTitle: 'Janam Kundli',
+                detailDesc1: 'Janam Kundli is a complete birth chart analysis based on Vedic astrology. It provides detailed insights into your life, including career, relationships, health and spirituality.',
+                detailDesc2: 'The analysis includes planetary positions, dashas, transit predictions and remedies for dosh nivaran. It provides guidance for a successful and fulfilling life.',
+                highlights: [
+                    'Complete birth chart analysis',
+                    'Life guidance',
+                    'Dosh nivaran',
+                    'Detailed consultation',
+                    'Accurate predictions'
+                ],
+                duration: '1 / 2 Hours',
+                location: 'Online / In-Person',
+                samagri: 'Not Required',
+                benefits: ['Life Guidance', 'Self Awareness', 'Success', 'Harmony', 'Peace of Mind']
+            },
+
+            // 20. Ganesh Puja
+            'ganesh-puja': {
+                icon: '🐘',
+                title: 'Ganesh Puja',
+                badge: '🐘 Ganesh',
+                desc: 'Remove obstacles and invite success.',
+                detailTitle: 'Ganesh Puja',
+                detailDesc1: 'Ganesh Puja is dedicated to Lord Ganesh, the remover of obstacles. It is performed to seek blessings for success, prosperity and the removal of all hurdles in life.',
+                detailDesc2: 'The puja involves offering modak, flowers and prayers to Lord Ganesh, chanting mantras and performing aarti for divine blessings.',
+                highlights: [
+                    'Remove obstacles',
+                    'Invite success',
+                    'Prosperity',
+                    'Complete samagri guidance',
+                    'Performed with devotion'
+                ],
+                duration: '2 / 3 Hours',
+                location: 'Home / Office / Venue',
+                samagri: 'Guidance Provided',
+                benefits: ['Success', 'Prosperity', 'Obstacle Removal', 'Positive Energy', 'Divine Blessings']
+            },
+
+            // 21. Hanuman Puja
+            'hanuman-puja': {
+                icon: '🚩',
+                title: 'Hanuman Puja',
+                badge: '🚩 Hanuman',
+                desc: 'Strength, courage and protection blessings.',
+                detailTitle: 'Hanuman Puja',
+                detailDesc1: 'Hanuman Puja is performed to invoke the blessings of Lord Hanuman for strength, courage, protection and success. It is a powerful ritual for overcoming fears and challenges.',
+                detailDesc2: 'The puja involves chanting Hanuman Chalisa, offering sindoor and sweets, and performing aarti to seek the blessings of Lord Hanuman.',
+                highlights: [
+                    'Strength & courage',
+                    'Protection',
+                    'Success',
+                    'Complete samagri guidance',
+                    'Performed with devotion'
+                ],
+                duration: '2 / 3 Hours',
+                location: 'Home / Temple / Venue',
+                samagri: 'Guidance Provided',
+                benefits: ['Strength', 'Courage', 'Protection', 'Success', 'Divine Blessings']
+            },
+
+            // 22. Ram Katha
+            'ram-katha': {
+                icon: '📚',
+                title: 'Ram Katha',
+                badge: '📚 Katha',
+                desc: 'Spiritual storytelling from Ramayan.',
+                detailTitle: 'Ram Katha',
+                detailDesc1: 'Ram Katha is the spiritual narration of the Ramayana, the epic story of Lord Rama. It teaches values, devotion and the path of righteousness.',
+                detailDesc2: 'The katha is performed with devotion and includes storytelling, bhajans and spiritual discussions. It brings peace, positivity and divine blessings.',
+                highlights: [
+                    'Spiritual storytelling',
+                    'Values & devotion',
+                    'Peace & positivity',
+                    'Complete guidance',
+                    'Performed with devotion'
+                ],
+                duration: '3 / 5 / 7 Days',
+                location: 'Home / Temple / Venue',
+                samagri: 'Guidance Provided',
+                benefits: ['Spiritual Growth', 'Peace', 'Positivity', 'Devotion', 'Divine Blessings']
+            },
+
+            // 23. Shiv Mahapuran Katha
+            'shiv-katha': {
+                icon: '🕉',
+                title: 'Shiv Mahapuran Katha',
+                badge: '🕉 Shiva',
+                desc: 'Divine discourse dedicated to Lord Shiva.',
+                detailTitle: 'Shiv Mahapuran Katha',
+                detailDesc1: 'Shiv Mahapuran Katha is a sacred discourse dedicated to Lord Shiva. It narrates the divine stories and teachings from the Shiv Mahapuran, the great scripture of Lord Shiva.',
+                detailDesc2: 'The katha brings spiritual awakening, peace and the blessings of Lord Shiva. It is performed for spiritual growth and divine grace.',
+                highlights: [
+                    'Divine Shiva discourse',
+                    'Spiritual awakening',
+                    'Peace & blessings',
+                    'Complete guidance',
+                    'Performed with devotion'
+                ],
+                duration: '3 / 5 / 7 Days',
+                location: 'Home / Temple / Venue',
+                samagri: 'Guidance Provided',
+                benefits: ['Spiritual Growth', 'Peace', 'Divine Blessings', 'Prosperity', 'Awakening']
+            },
+
+            // 24. Vehicle Puja
+            'vehicle-puja': {
+                icon: '🚗',
+                title: 'Vehicle Puja',
+                badge: '🚗 Blessings',
+                desc: 'Blessings and protection for new vehicles.',
+                detailTitle: 'Vehicle Puja',
+                detailDesc1: 'Vehicle Puja is performed to seek blessings and protection for new vehicles. It ensures safety, longevity and success in journeys.',
+                detailDesc2: 'The puja involves worshipping the vehicle with coconut, flowers and rice, chanting mantras and performing aarti for divine protection.',
+                highlights: [
+                    'Vehicle blessings',
+                    'Safety & protection',
+                    'Success in journeys',
+                    'Complete samagri guidance',
+                    'Performed with devotion'
+                ],
+                duration: '1 / 2 Hours',
+                location: 'Home / Showroom / Venue',
+                samagri: 'Guidance Provided',
+                benefits: ['Safety', 'Protection', 'Success', 'Peace of Mind', 'Divine Blessings']
+            }
+        };
+
+        // ===== GET SERVICE FROM URL =====
+        function getServiceFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('service') || 'bhagwat-katha';
+        }
+
+        // ===== LOAD SERVICE DATA =====
+        function loadService() {
+            const serviceKey = getServiceFromURL();
+            const data = servicesData[serviceKey] || servicesData['bhagwat-katha'];
+
+            // Split title for display (fix the duplicate word bug)
+            const titleWords = data.title.split(' ');
+            const firstPart = titleWords.slice(0, -1).join(' ');
+            const lastPart = titleWords[titleWords.length - 1];
+
+            // Update Hero
+            document.getElementById('serviceBadge').textContent = data.badge;
+            // Display title with span only on last word
+            document.getElementById('serviceTitle').innerHTML = 
+                `${firstPart} <span>${lastPart}</span>`;
+            document.getElementById('serviceDesc').textContent = data.desc;
+
+            // Update Details
+            document.getElementById('detailTitle').textContent = data.detailTitle;
+            document.getElementById('detailDesc1').textContent = data.detailDesc1;
+            document.getElementById('detailDesc2').textContent = data.detailDesc2;
+
+            // Update Highlights
+            const highlightsList = document.getElementById('highlightsList');
+            highlightsList.innerHTML = '';
+            data.highlights.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fas fa-check-circle"></i> ${item}`;
+                highlightsList.appendChild(li);
+            });
+
+            // Update Sidebar
+            document.getElementById('durationVal').textContent = data.duration;
+            document.getElementById('locationVal').textContent = data.location;
+            document.getElementById('samagriVal').textContent = data.samagri;
+
+            // Update Benefits
+            const benefitsList = document.getElementById('benefitsList');
+            benefitsList.innerHTML = '';
+            data.benefits.forEach(benefit => {
+                const li = document.createElement('li');
+                li.style.cssText = 'padding: 6px 0; display: flex; align-items: center; gap: 10px;';
+                li.innerHTML = `<i class="fas fa-check-circle" style="color: #ff9800;"></i> ${benefit}`;
+                benefitsList.appendChild(li);
+            });
+
+            // Update Page Title
+            document.title = data.title + ' | Vakta Shree Kapil Muniji';
+        }
+
+      function loadRelatedServices(){
+
+    const currentKey=getServiceFromURL();
+
+    const allKeys=Object.keys(servicesData);
+
+    const filtered=allKeys.filter(key=>key!==currentKey);
+
+    const shuffled=filtered.sort(()=>Math.random()-0.5);
+
+    const selected=shuffled.slice(0,3);
+
+    const grid=document.getElementById("relatedGrid");
+
+    // Keep Dharma AI card
+    grid.innerHTML=`
+    <a href="AI.html" class="related-card">
+
+        <div class="rel-icon" style="color:orange;">AI</div>
+
+        <h4>Dharma AI</h4>
+
+        <p>
+
+            Discover its story, benefits, puja vidhi, samagri, and vrata rules. Solve problems by asking questions.
+
+        </p>
+
+    </a>
+    `;
+
+    selected.forEach(key=>{
+
+        const data=servicesData[key];
+
+        const card=document.createElement("a");
+
+        card.href=`?service=${key}`;
+
+        card.className="related-card";
+
+        card.innerHTML=`
+
+            <div class="rel-icon">
+
+                ${data.icon}
+
+            </div>
+
+            <h4>
+
+                ${data.title}
+
+            </h4>
+
+            <p>
+
+                ${data.desc}
+
+            </p>
+
+        `;
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+        // ===== INIT =====
+        document.addEventListener('DOMContentLoaded', () => {
+            loadService();
+            loadRelatedServices();
+        });
+    </script>
+
+</body>
+</html>
+
+<script>
+(function () {
+    "use strict";
+
+    // Disable Right Click
+    document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+    });
+
+    // Disable Text Selection
+    document.addEventListener("selectstart", function (e) {
+        e.preventDefault();
+    });
+
+    // Disable Copy
+    document.addEventListener("copy", function (e) {
+        e.preventDefault();
+    });
+
+    // Disable Cut
+    document.addEventListener("cut", function (e) {
+        e.preventDefault();
+    });
+
+    // Disable Drag
+    document.addEventListener("dragstart", function (e) {
+        e.preventDefault();
+    });
+
+    // Disable Image Drag
+    window.addEventListener("load", function () {
+        document.querySelectorAll("img").forEach(function (img) {
+            img.draggable = false;
+        });
+    });
+
+    // Disable Keyboard Shortcuts
+    document.addEventListener("keydown", function (e) {
+
+        // F12
+        if (e.key === "F12") {
+            e.preventDefault();
+            return false;
+        }
+
+        // Ctrl+Shift+I
+        if (e.ctrlKey && e.shiftKey && e.key.toUpperCase() === "I") {
+            e.preventDefault();
+            return false;
+        }
+
+        // Ctrl+Shift+J
+        if (e.ctrlKey && e.shiftKey && e.key.toUpperCase() === "J") {
+            e.preventDefault();
+            return false;
+        }
+
+        // Ctrl+Shift+C
+        if (e.ctrlKey && e.shiftKey && e.key.toUpperCase() === "C") {
+            e.preventDefault();
+            return false;
+        }
+
+        // Ctrl+U
+        if (e.ctrlKey && e.key.toUpperCase() === "U") {
+            e.preventDefault();
+            return false;
+        }
+
+        // Ctrl+S
+        if (e.ctrlKey && e.key.toUpperCase() === "S") {
+            e.preventDefault();
+            return false;
+        }
+
+        // Ctrl+A
+        if (e.ctrlKey && e.key.toUpperCase() === "A") {
+            e.preventDefault();
+            return false;
+        }
+
+        // Ctrl+P
+        if (e.ctrlKey && e.key.toUpperCase() === "P") {
+            e.preventDefault();
+            return false;
+        }
+
+    });
+
+    // Disable Console Output
+    console.log = function () {};
+    console.warn = function () {};
+    console.error = function () {};
+    console.info = function () {};
+    console.debug = function () {};
+
+    // Freeze Console
+    try {
+        Object.freeze(console);
+    } catch (e) {}
+
+    // DevTools Detection
+    setInterval(function () {
+
+        if (
+            window.outerWidth - window.innerWidth > 160 ||
+            window.outerHeight - window.innerHeight > 160
+        ) {
+
+            document.body.innerHTML = `
+            <div style="
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            background:#111;
+            color:white;
+            font-family:Arial;
+            text-align:center;
+            ">
+                <div>
+                    <h1>⚠ Developer Tools Detected</h1>
+                    <p>Please close Developer Tools.</p>
+                </div>
+            </div>`;
+
+        }
+
+    }, 1000);
+
+})();
+</script>
+
+<style>
+body{
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+
+    -webkit-touch-callout:none;
+}
+img{
+    -webkit-user-drag:none;
+}
+</style>
