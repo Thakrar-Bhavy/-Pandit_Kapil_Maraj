@@ -1455,7 +1455,6 @@
         </div>
     </section>
 
-<!-- ===== Dharma AI SECTION ===== -->
     
 <!-- =========================
       DHARMA AI SECTION
@@ -1463,17 +1462,16 @@
 
 <section style="padding:10px 8%;background:#fffdf9;">
 
-    <div style="max-width:1200px;margin:auto;background:linear-gradient(135deg,#fff,#fff8ef);border:1px solid rgba(255,170,0,.12);border-radius:30px;padding:45px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;box-shadow:0 15px 40px rgba(0,0,0,.06);">
+    <div class="dharma-container">
 
         <!-- LEFT -->
 
-        <div style="flex:1;min-width:320px;">
-
-            <span style="display:inline-block;padding:8px 18px;background:#fff3dc;color:#c77700;font-size:14px;font-weight:600;border-radius:50px;margin-bottom:18px;">
+<div class="dharma-left">
+                <span style="display:inline-block;padding:8px 18px;background:#fff3dc;color:#c77700;font-size:14px;font-weight:600;border-radius:50px;margin-bottom:18px;">
                 ✨ NEW • FREE AI FEATURE
             </span>
 
-            <h2 style="font-size:42px;font-family:'Cinzel',serif;color:#222;margin-bottom:18px;line-height:1.3;">
+            <h2 class="dharma-title">
 
                 🕉 Dharma AI
 
@@ -1510,7 +1508,7 @@
 
         <!-- RIGHT -->
 
-        <div style="flex:1;min-width:320px;">
+        <div class="dharma-right">
 
             <div style="background:#fff;border-radius:25px;padding:28px;border:1px solid #f1e5c8;box-shadow:0 10px 30px rgba(0,0,0,.05);">
 
@@ -2305,5 +2303,86 @@ body{
 img{
     -webkit-user-drag:none;
    
+}
+/* ===========================
+      DHARMA AI RESPONSIVE
+===========================*/
+
+.dharma-container{
+
+    max-width:1200px;
+    margin:auto;
+    background:linear-gradient(135deg,#fff,#fff8ef);
+    border:1px solid rgba(255,170,0,.12);
+    border-radius:30px;
+    padding:45px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+    box-shadow:0 15px 40px rgba(0,0,0,.06);
+
+}
+
+.dharma-left{
+
+    flex:1;
+
+}
+
+.dharma-right{
+
+    flex:1;
+
+}
+
+.dharma-title{
+
+    font-size:42px;
+    font-family:'Cinzel',serif;
+    color:#222;
+    margin-bottom:18px;
+    line-height:1.3;
+
+}
+
+@media(max-width:768px){
+
+.dharma-container{
+
+    flex-direction:column;
+    padding:28px 20px;
+    gap:25px;
+
+}
+
+.dharma-left,
+.dharma-right{
+
+    width:100%;
+
+}
+
+.dharma-title{
+
+    font-size:30px;
+    text-align:center;
+
+}
+
+.dharma-left p{
+
+    font-size:16px;
+    text-align:center;
+
+}
+
+.dharma-left a{
+
+    width:100%;
+    text-align:center;
+
+}
+
 }
 </style>
