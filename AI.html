@@ -1071,9 +1071,9 @@
                     <p>Enter a name above or click an example to learn its complete story, significance and puja vidhi.</p>
                 </div>
                 <div class="loading" id="storyLoading" style="display:none;">
-                    <div class="spinner"></div>
-                    <span>Gathering spiritual knowledge…</span>
-                </div>
+    <div class="spinner"></div>
+    <span id="storyLoadingText">🕉 Understanding your question...</span>
+</div>
                 <div class="response-content" id="storyContent"></div>
             </div>
 
@@ -1129,10 +1129,10 @@
                     <h4>Ask a Spiritual Question</h4>
                     <p>Type your question above or click an example to receive respectful guidance rooted in Hindu scriptures.</p>
                 </div>
-                <div class="loading" id="helperLoading" style="display:none;">
-                    <div class="spinner"></div>
-                    <span>Seeking wisdom…</span>
-                </div>
+               <div class="loading" id="helperLoading" style="display:none;">
+    <div class="spinner"></div>
+    <span id="helperLoadingText">🕉 Understanding your question...</span>
+</div>
                 <div class="response-content" id="helperContent"></div>
             </div>
 
@@ -1399,6 +1399,7 @@
             // Show loading
             storyEmpty.style.display = 'none';
             storyLoading.style.display = 'flex';
+            startLoadingMessages("storyLoadingText","storyLoadingInterval");
             storyContent.classList.remove('active');
             storyContent.innerHTML = '';
             storyGuidance.classList.remove('active');
@@ -1425,8 +1426,8 @@
                 `;
                 storyContent.classList.add('active');
             } finally {
-                storyLoading.style.display = 'none';
-            }
+storyLoading.style.display = 'none';
+stopLoadingMessages("storyLoadingInterval");            }
         }
 
         storySubmitBtn.addEventListener('click', handleStoryQuery);
@@ -1472,6 +1473,7 @@
             // Show loading
             helperEmpty.style.display = 'none';
             helperLoading.style.display = 'flex';
+            startLoadingMessages("helperLoadingText","helperLoadingInterval");
             helperContent.classList.remove('active');
             helperContent.innerHTML = '';
             helperGuidance.classList.remove('active');
@@ -1497,8 +1499,8 @@
                 `;
                 helperContent.classList.add('active');
             } finally {
-                helperLoading.style.display = 'none';
-            }
+helperLoading.style.display = 'none';
+stopLoadingMessages("helperLoadingInterval");            }
         }
 
         helperSubmitBtn.addEventListener('click', handleHelperQuery);
@@ -1543,6 +1545,61 @@
                 }
             }
         })();
+
+
+
+
+
+
+// ============================================
+// Dynamic Loading Messages
+// ============================================
+
+const loadingMessages = [
+    "📖 Exploring Hindu traditions...",
+    "📖 Looking into Bhagavad Gita...",
+    "📚 Studying authentic Vedic knowledge...",
+    "✨ Exploring Vishnu Purana...",
+    "🙏 Gathering wisdom from Sanatan Dharma...",
+    "📜 Reviewing Ramayana...",
+    "🌺 Preparing a detailed Dharma explanation...",
+    "🔍 Reviewing Garuda Purana...",
+    "🕉 Consulting ancient Hindu scriptures...",
+    "📿 Understanding spiritual traditions...",
+    "✨ Organizing the most relevant spiritual guidance...",
+    "🕉 Dharma AI is preparing your response...",
+   
+];
+
+let storyLoadingInterval;
+let helperLoadingInterval;
+
+function startLoadingMessages(elementId, intervalVar){
+
+    let i = 0;
+
+    document.getElementById(elementId).textContent = loadingMessages[0];
+
+    window[intervalVar] = setInterval(function(){
+
+        i++;
+
+        if(i >= loadingMessages.length){
+            i = 0;
+        }
+
+        document.getElementById(elementId).textContent = loadingMessages[i];
+
+    },10000);
+
+}
+
+function stopLoadingMessages(intervalVar){
+
+    clearInterval(window[intervalVar]);
+
+}
+
 
         console.log('🕉 Dharma AI loaded successfully.');
     </script>
